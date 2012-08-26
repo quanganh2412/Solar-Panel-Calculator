@@ -6,10 +6,13 @@
 <title>Simple User Demo</title>
 </head>
 <body>
-<form action="/calculate" method="post">
-Text 1: <input name="text" type="text" size="30" maxlength="30"><br>
-<input type="checkbox" name="checkbox" value="salami">Checkbox 1<br>
-<input type="hidden" name="hiddenValue" value="1">
+<form action="/result" method="post">
+System cost: <input name="systemCost" type="text" size="30" maxlength="30"><br>
+System size (KW): <input name="systemSize" type="text" size="30" maxlength="30"><br>
+Panel age efficiency loss: <input name="panelAgeEfficiencyLoss" type="text" size="30" maxlength="30"><br>
+Inverter efficiency: <input name="inverterEfficiency" type="text" size="30" maxlength="30"><br><br>
+Average daily hours of sunlight: <input name="averageDailySunlight" type="text" size="30" maxlength="30"><br>
+Daily average usage (KWh): <input name="dailyAverageUsage" type="text" size="30" maxlength="30"><br><br>
 
 <input type="submit" value="Submit "> <input type="reset" value="Reset">
 </form>
