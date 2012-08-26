@@ -7,7 +7,7 @@
 </head>
 <body>
 <form action="/result" method="post">
-System cost: <input name="systemCost" type="text" size="30" maxlength="30"><br>
+System cost: <input name="systemCosts" type="text" size="30" maxlength="30"><br>
 System size (KW): <input name="systemSize" type="text" size="30" maxlength="30"><br>
 Panel age efficiency loss: <input name="panelAgeEfficiencyLoss" type="text" size="30" maxlength="30"><br>
 Inverter efficiency: <input name="inverterEfficiency" type="text" size="30" maxlength="30"><br><br>

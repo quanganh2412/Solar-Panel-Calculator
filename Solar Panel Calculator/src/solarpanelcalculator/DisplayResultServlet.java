@@ -4,7 +4,7 @@ import javax.servlet.http.*;
 
 public class DisplayResultServlet extends HttpServlet {
 	SolarPanelSystem system = new SolarPanelSystem();
-	public float systemCost, systemSize, panelAgeEfficiencyLoss, inverterEfficiency, averageDailySunlight, dailyAverageUsage;
+	public float systemCosts, systemSize, panelAgeEfficiencyLoss, inverterEfficiency, averageDailySunlight, dailyAverageUsage;
 	
 	public boolean isInvalidValue(float value, float lowerBound, float upperBound) {
 		return Calculations.isInvalidValue(value, lowerBound, upperBound);
@@ -16,7 +16,7 @@ public class DisplayResultServlet extends HttpServlet {
 		
 		//Convert inputs to floats.
 		try {
-			systemCost = Float.parseFloat(req.getParameter("systemCost"));
+			systemCosts = Float.parseFloat(req.getParameter("systemCosts"));
 			systemSize = Float.parseFloat(req.getParameter("systemSize"));
 			panelAgeEfficiencyLoss = Float.parseFloat(req.getParameter("panelAgeEfficiencyLoss"));
 			inverterEfficiency = Float.parseFloat(req.getParameter("inverterEfficiency"));
@@ -31,9 +31,14 @@ public class DisplayResultServlet extends HttpServlet {
 	    }
 		
 		//Update system instance.
-		system.setCosts(systemCost);
-		system.setSize(systemSize);
-		
+		if (!system.setCosts(systemCosts)) {
+			resp.getWriter().println("Please enter costs <b>greater then</b> 0.<br>");
+			return;
+		}
+		if (!system.setSize(systemSize)) {
+			resp.getWriter().println("Please enter a size <b>greater then</b> 0.<br>");
+			return;
+		}
 		if (!system.setPanelAgeEfficiencyLoss(panelAgeEfficiencyLoss)) {
 			resp.getWriter().println("Please enter a panel age efficiency loss <b>between</b> 0 and 1.<br>");
 			return;

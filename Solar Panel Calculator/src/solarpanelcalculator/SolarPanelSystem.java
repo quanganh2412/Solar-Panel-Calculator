@@ -10,15 +10,23 @@ public class SolarPanelSystem {
 	float getCosts() {
 		return costs;
 	}
-	void setCosts(float value) {
+	boolean setCosts(float value) {
+		if (value < 0) {
+			return false;
+		}
 		costs = value;
+		return true;
 	}
 	
 	float getSize() {
 		return size;
 	}
-	void setSize(float value) {
+	boolean setSize(float value) {
+		if (value < 0) {
+			return false;
+		}
 		size = value;
+		return true;
 	}
 	
 	float getPanelAgeEfficiencyLoss() {
